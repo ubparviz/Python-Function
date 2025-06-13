@@ -1,4 +1,4 @@
-# Parol kiritiladi. Uzunligi 8 dan uzun bo'lsa kuchli aks holda kuchsiz.
+# Parol kiritiladi. Uzunligi 8 dan uzun bo'lsa kuchli aks holda kuchsiz. 
 
 def is_strong_password(password):
     if len(password) >= 8:
