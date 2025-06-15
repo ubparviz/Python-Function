@@ -3,15 +3,34 @@
 
 # °F=(°C×9/5)+32
 
-def c_to_f(celsius):
+def c_to_f(celsius: float) -> float:
+    """Celsiusdan Fahrenheitga aylantiradi
+
+    Args:
+        celsius (float): Float son qabul qiladi
+
+    Returns: Formula orqali hisoblab float son chiqaradi
+    """    
     return (celsius * 9/5) + 32
 
 # °C=(°F−32)×5/9
 
-def f_to_c(fahrenheit):
+def f_to_c(fahrenheit: float) -> float:
+    """Fahrenheitdan Celsiusga aylantiradi
+
+    Args:
+        fahrenheit (float): float son qabul qiladi
+
+    Returns: Formula orqali hisoblab float son chiqaradi
+    """
     return (fahrenheit - 32) * 5/9
 
-def main():
+def main() -> None:
+    """
+    Menyuni ishga tushiradi va
+    Foydalanuvchi tanloviga ko'ra funksiyalani ishga tushiradi
+    Tanlov faqat 1 yoki 2 ekanligini nazorat qiladi
+    """    
     choice = input("Qaysi yo'nalishda aylantirmoqchisiz? \n 1. C→F "
                                                         "\n 2. F→C "
                                                         "\n Tanlang (1 yoki 2): ").lower()
