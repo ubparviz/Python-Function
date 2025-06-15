@@ -6,55 +6,89 @@
 # withdraw(balance, amount)
 # check_balance(balance)
 
-def deposit(balance, amount):
-    result = balance + amount
-    return print(f"\nPulingiz qo'shildi! \n Balansda jami: {result} so'm")
+balance = 100
 
-def withdraw(balance, amount):
-    result = balance - amount
-    return print(f"\nPulingiz chiqarildi! \n Balansda qoldi: {result} so'm")
+def deposit(balance: float, amount: float) -> float:
+    """
+    Balansga mablag' qo'shadi.
 
-def check_balance(balance):
-    return print(f"Balansingiz: {balance} so'm")
+    Parametrlar:
+        balance (float): Joriy balans.
+        amount (float): Qo'shiladigan summa.
+
+    Returns:
+        float: Yangi balans qiymati.
+    """
+    if amount <= 10_000 and amount >= 5:
+        balance += amount
+        print(f"\nPulingiz qo'shildi! \n Balansda jami: {balance}$")
+        return balance
+    
+    elif amount >= 10_000:
+        print("\n=== Maksimal to'ldirish 10 ming $ ===")
+        return balance
+    
+    elif amount >= 0  and amount < 5:
+        print("\n=== Minimal to'ldirish 5$ ===")
+        return balance
+    
+    else:
+        print("Xato summa kiritingiz!")
+        return balance
+
+def withdraw(balance: float, amount: float) -> float:
+    """
+    Balansdan mablag' ayiradi.
+
+    Parametrlar:
+        balance (float): Joriy balans.
+        amount (float): Ayriladigan summa.
+
+    Returns:
+        float: Yangi balans qiymati.
+    """
+    if amount < balance and amount > 0:
+        balance -= amount
+        print(f"\nPulingiz chiqarildi! \n Balansda qoldi: {balance}$")
+        return balance
+    
+    else:
+        print("Xato summa kiritingiz yoki balansingizda buncha summa mavjud emas")
+        return balance
+
+def check_balance() -> None:
+    """
+    Balansni ekranga chiqaradi.
+    Returns: None
+    """
+    print(f"Balansingiz: {balance}$")
 
 def main():
-    balance = float(1_000_000)
+    """
+    Foydalanuvchiga asosiy menyuni chiqaradi.
+    Foydalanuvchi tanlagan tanlov orqali funksiyalarni ishga tushiradi
+    """
+    while True:
+        
+        choice = int(input("\nBu Sizning elektron xamyoningiz"
+                            "\n 1. Balansni tekshirish "
+                            "\n 2. Pul chiqarish "
+                            "\n 3. Pul to'ldirish "
+                            "\n Nima qilamiz: "))
 
-    choice = int(input("\nBu Sizning elektron xamyoningiz"
-                        "\n 1. Balansni tekshirish "
-                        "\n 2. Pul chiqarish "
-                        "\n 3. Pul to'ldirish "
-                        "\n Nima qilamiz: "))
+        if choice == 1:
+            check_balance()
 
-    if choice == 1:
-        check_balance(balance)
-
-    elif choice == 2:
-        amount = float(input("\nChiqarmoqchi bo'lgan summangizni kiriting: "))
-
-        if amount < balance and amount > 0:
+        elif choice == 2:
+            amount = float(input("\nChiqarmoqchi bo'lgan summangizni kiriting: "))
             withdraw(balance, amount)
 
-        else:
-            print("Xato summa kiritingiz yoki balansingizda buncha summa mavjud emas")
-
-    elif choice == 3:
-        amount = float(input("\nTo'ldirmoqchi bo'lgan summangizni kiriting: "))
-
-        if amount <= 10_000_000 and amount >= 5000:
+        elif choice == 3:
+            amount = float(input("\nTo'ldirmoqchi bo'lgan summangizni kiriting: "))
             deposit(balance, amount)
-        
-        elif amount >= 10_000_000:
-            print("Maksimal to'ldirish 10 million so'm")
 
-        elif amount >= 0  and amount <= 4999:
-            print("Minimal to'ldirish 5 ming so'm")
-        
         else:
-            print("Xato summa kiritingiz!")
-
-    else:
-        print("1, 2, 3 dan birini tanlang: ")
+            print("\n=== 1, 2, 3 dan birini tanlang ===")
 
 
 main()
