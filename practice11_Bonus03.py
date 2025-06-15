@@ -29,7 +29,11 @@ def calculate_sof_maosh(maosh: float, soliq: float) -> float:
     sof_maosh = maosh - soliq   
     return sof_maosh
 
-def main():
+def main()-> None:
+    """
+    Foydalanuvchidan qancha maosh olishini so'raydi.
+    Shunga qarab soliq va sof daromadini chiqarib beradi
+    """    
     maosh = float(input("Oylik maoshingizni kiriting (so'mda): "))
 
     soliq = calculate_soliq(maosh)
