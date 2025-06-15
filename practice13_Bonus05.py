@@ -5,10 +5,24 @@
 
 # is_palindrome(text: str)
 
-def is_palindrome(text):
+def is_palindrome(text: str) -> bool:
+    """Foydalanuvchi kiritgan so'zni PALLINDROM ekanligini tekshiradi
+
+    Args:
+        text (str): Foydalanuvchi kiritadigan so'z
+
+    Returns:
+        bool: agar PALLINDROM bo'lsa TRUE, aks holda FALSE qaytaradi
+    """    
     return text.lower() == text[::-1].lower()
 
-def main():
+def main() -> None:
+    """
+    Foydalanuvchidan so'z kiritishini so'raydi va funksiyalarni ishga tushuradi
+    Foydalanuvchi raqam qatnashgan so'z kiritsa toki to'g'ri so'z kiritmaguncha qayta-qayta so'rayveradi
+
+    Returns: NONE
+    """    
     while True:
         text = input("\nSo'z kiriting: ")
 
